@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function orderFood() {
+        return new Promise((res, rej) => {
+          let Isdeliver = true;
+          setTimeout(() => {
+            if (Isdeliver) {
+              res("Delivered Food ");
+            } else {
+              rej("Sorry Owen is Broken So pizza cannot delivered !");
+            }
+          }, 2000);
+        });
+      }
+      orderFood()
+        .then((message) => {
+          console.log(`${message} on Time 🍕🍕! `);
+        })
+        .catch((message) => {
+          console.log(`Error: ${message}`);
+        });
+    </script>
+  </body>
+</html>
