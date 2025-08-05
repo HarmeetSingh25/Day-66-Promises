@@ -7,10 +7,16 @@
   </head>
   <body>
     <script>
+      let chances = Math.floor(Math.random() * 10);
       function orderFood() {
         return new Promise((res, rej) => {
-          let Isdeliver = true;
+          let Isdeliver;
           setTimeout(() => {
+            if (chances <= 7) {
+              Isdeliver = true;
+            } else {
+              Isdeliver = false;
+            }
             if (Isdeliver) {
               res("Delivered Food ");
             } else {
@@ -26,7 +32,6 @@
         .catch((message) => {
           console.log(`Error: ${message}`);
         });
-        
     </script>
   </body>
 </html>
