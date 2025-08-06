@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Getuser() {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            res({ id: 1, name: "Harmeet" });
+          }, 1000);
+        });
+      }
+      function GetPost(userName) {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            res(["xyz", "title"]);
+          }, 2000);
+        });
+      }
+      function GetComments(postid) {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            res(["good post ", "Looking like wow"]);
+          }, 1000);
+        });
+      }
+      Getuser()
+        .then((Userdets) => {
+          console.log(Userdets);
+          return GetPost(Userdets.id);
+        })
+        .then((Tittle) => {
+          console.log(Tittle);
+          return GetComments();
+        })
+        .then((GetComments) => {
+          console.log(GetComments);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            console.log("All Data is recieved");
+          }, 1000);
+        });
+    </script>
+  </body>
+</html>
